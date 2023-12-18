@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang= "en">
+    <head>
+        <!--custom title for each page-->
+        <title>{% block title %}{% endblock %}</title>
+        <!-- Favicon. NOT showing I don't know why-->
+        <link rel="icon" type="image/png" href="/static/favicon.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/styles.css" />  
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg" id="upmenu">
+                <div class="container-fluid">
+                    
+                    <!--menu-->
+                    <div class="centered">
+                        <a href="/"><img src="/static/logo.png" width="50px"></a>
+                        <a href="/opencall"> &nbsp; &nbsp; OPEN CALL &nbsp;</a>
+                        <a href="/blog"> &nbsp; BLOG &nbsp;</a>
+                        <a href="/shop"> &nbsp; SHOP &nbsp;</a>
+                    </div>
+                    
+                    <!--search NEED JAVASCRIPT tutorial here https://www.youtube.com/watch?v=TlP5WIxVirU&t=101s -->
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </form>
+                </div>  
+            </nav>
+            <hr>
+            
+            
+        </header>
+        <div class="color-changer">
+            🤌 COLOR 
+            <input id="colorH"  type="color" value="#00ff0d">
+        </div>
+
+        <main>
+            {% block main %}{% endblock%}
+        </main>
+        <footer class="small text-center">
+            <hr style="margin-bottom: 10px; margin-top: 100px; margin-left: 400px; margin-right: 400px;">
+            <div class="container-fluid">
+                <a href="https://t.me/collective_ism"> &nbsp; tg-channel &nbsp;</a>
+                <a href="/shop"> &nbsp; instagram &nbsp;</a>
+                <a href="/shop"> &nbsp; email &nbsp;</a>
+                <a href="https://boosty.to/collective_ism"> &nbsp; make a donation &nbsp;</a>
+                
+            </div>
+            <!-- in one line: year, one phrase description, about and so on -->
+            <image src></image>
+           
+        </footer>
+    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js">  </script>
+    <script src="/static/main.js"></script>
+
+</html> 

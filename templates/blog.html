@@ -1,0 +1,24 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    Blog
+{% endblock %}
+
+{% block main%}
+
+    <!--МНЕ НУЖНО ЧТОБЫ ОНО В РЯД СТОЯЛО А ФУТЕР ВНИЗУУУУУ ПОКА НЕ ПОЛУЧАЕТСЯ -->
+    <div class="container-fluid" >
+        <div class="column"> 
+            <h1 > TG—CHANNEL</h1>
+            <p style="text-align: left;">we have a telegram channel! it is really vibrant curios and fun, if you wanna be a part please subscribe!!! Here is the example of what we usally share</p>
+            <div style="height: 200px;"></div>
+            <p><i>Reload the page to see another random post 👉 </i></p>
+        </div>
+        
+        <div id="post-box">
+            <p><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="collective_ism/{{ postik }}" data-color="343638" width="50%" data-dark-color="FFFFFF"></script></p>
+        </div>
+
+          
+    </div>
+{% endblock%}

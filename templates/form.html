@@ -1,0 +1,90 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    Form
+{% endblock %}
+
+{% block main%}
+    <!--form page-->
+    
+    <div class="container-fluid justify-content-center" id="opencallform">
+        <form action="/form" method="post" enctype="multipart/form-data">
+            <!--regular info-->
+            <br><br><br>
+            <h1>FORM</h1>
+            <div class="">
+                <label for="emailF" class="form-label">email: </label>
+                <input id="emailF" width="30px" class="form-control" name="email" placeholder="e-mail" type="email" required>
+            </div><br>
+            <div>
+                <label for="nameF" class="form-label">name:</label>
+                <input id="nameF" class="form-control" name="name" placeholder="name" type="text" required>
+            </div><br>
+
+            <!--datalist user chooses from sqlite database-->
+            <div>
+                <label for="exampleDataList" class="form-label">Where do you live at the moment?</label>
+                <input id="nonrequired" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                <datalist id="datalistOptions">
+                    {% for city in cities %}
+                    <option value={{city["name"]}}></option>
+                    {% endfor%}
+                </datalist>
+            </div><br>
+
+            <!--text field which can be enlarged by user-->
+            <div class="">
+                <label  class="form-label" for="Description"><b>Description</b> </label>
+                <textarea class="form-control" id="Description" rows="3" aria-describedby="helpBlockD" required></textarea>
+                <div id="helpBlockD" class="form-text">
+                    max length 300 words
+                </div>
+            </div>
+            <br>
+            <!--upload file-->
+            <div>
+                <input class="form-control" name="fileapp" id="formFileLg" type="file" aria-describedby="helpBlockFile" width="300px" required/>
+                <div id="helpBlockFile" class="form-text">
+                    max 20 megabyte be careful
+                </div>
+                <br>
+            </div>
+        
+            <!--user agrees with terms-->
+            <fieldset>
+                <legend>Do you accept the terms?</legend>
+                <div class="form-text">
+                    ds;fjlg;sdlfkngld;fksgn;lkfsvgmhjm;jkselrjkgnf;mdfl/dglkjnsmfl;;kgjnkf;v c.ghufklsdf;oihuvukcyfbn;'adsog;kjhlrbesjgnf;sdlakcjf ldsfjgnsdf'
+                </div>
+                <label><input type="radio" name="radio1" value="yes" required/> YES </label>
+            </fieldset>
+            <!--user confirms that he/she is the owner-->
+            <br>
+            <fieldset>
+                <legend>This project is my intellectual property.</legend>
+                <div class="form-text">
+                    blablablbalblablblbalablablablabalbalbalbalb
+                </div>
+        
+                <label><input type="radio" name="radio2" value="yes" required /> Yes, I am the author </label>
+             
+                <label><input type="radio" name="radio2" value="no" required/> No, I am a thief</label>
+            </fieldset>
+            <br>
+
+             
+            <input class="form-control" color="red" type="submit" value="send" id="buttonSubmit">
+        </form>
+    </div>
+    <div class="info">
+        <div class="infop">#e1e1e1</div>
+        <p>
+        color means<br>
+        field is essential
+        </p>
+    </div>
+
+   
+    
+
+{% endblock%}
