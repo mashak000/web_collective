@@ -9,6 +9,7 @@
     
     <div class="container-fluid justify-content-center" id="opencallform">
         <form action="/form" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="2" value="1111111">
             <!--regular info-->
             <br><br><br>
             <h1>FORM</h1>
@@ -23,7 +24,7 @@
 
             <!--datalist user chooses from sqlite database-->
             <div>
-                <label for="exampleDataList" class="form-label">Where do you live at the moment?</label>
+                <label for="exampleDataList" class="form-label">where do you live at the moment?</label>
                 <input id="nonrequired" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
                 <datalist id="datalistOptions">
                     {% for city in cities %}
@@ -33,8 +34,8 @@
             </div><br>
 
             <!--text field which can be enlarged by user-->
-            <div class="">
-                <label  class="form-label" for="Description"><b>Description</b> </label>
+            <div>
+                <label  class="form-label" for="Description">description:</label>
                 <textarea class="form-control" id="Description" rows="3" aria-describedby="helpBlockD" required></textarea>
                 <div id="helpBlockD" class="form-text">
                     max length 300 words
@@ -43,31 +44,36 @@
             <br>
             <!--upload file-->
             <div>
-                <input class="form-control" name="fileapp" id="formFileLg" type="file" aria-describedby="helpBlockFile" width="300px" required/>
+                
+                <input class="form-control" name="fileapp" id="FILE" type="file" aria-describedby="helpBlockFile" width="300px" required/>
                 <div id="helpBlockFile" class="form-text">
-                    max 20 megabyte be careful
+                    max 2 mb be careful
                 </div>
+
+                <!--check size-->
+                <script>
+                    var uploadField = document.getElementById("FILE");
+
+                    uploadField.onchange = function() {
+                        if(this.files[0].size > 2097152){  //2mb
+                        alert("File is too big!");
+                        this.value = "";
+                        };
+                    };
+                </script>
                 <br>
             </div>
         
             <!--user agrees with terms-->
             <fieldset>
                 <legend>Do you accept the terms?</legend>
-                <div class="form-text">
-                    ds;fjlg;sdlfkngld;fksgn;lkfsvgmhjm;jkselrjkgnf;mdfl/dglkjnsmfl;;kgjnkf;v c.ghufklsdf;oihuvukcyfbn;'adsog;kjhlrbesjgnf;sdlakcjf ldsfjgnsdf'
-                </div>
                 <label><input type="radio" name="radio1" value="yes" required/> YES </label>
             </fieldset>
             <!--user confirms that he/she is the owner-->
             <br>
             <fieldset>
                 <legend>This project is my intellectual property.</legend>
-                <div class="form-text">
-                    blablablbalblablblbalablablablabalbalbalbalb
-                </div>
-        
                 <label><input type="radio" name="radio2" value="yes" required /> Yes, I am the author </label>
-             
                 <label><input type="radio" name="radio2" value="no" required/> No, I am a thief</label>
             </fieldset>
             <br>
