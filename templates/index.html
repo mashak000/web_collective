@@ -5,16 +5,67 @@
 {% endblock %}
 
 {% block main%}
-    <div class="container-fluid">
+    <div class="container-fluid wrapper">
         <div class="intro-text">
             <h1>HELLO WORLD</h1>
             <h2>WE ARE COLLECTIVE(ISM) </h2>
-            <p>Андрей Великанов
-            Симулякр ли я дрожащий или право имею — М.: Новое литературное обозрение. 2007. —272 с., ил.
-            Что делать художнику после того, как прозвучали многочисленные декларации о смерти искусства? И можно ли теперь заниматься творчеством в какой-либо форме? И так, чтобы не быть при этом жертвой симуляции? Решить эту проблему пытается Андрей Великанов, художник, которого, впрочем, такая старомодная профессиональная идентификация более не удовлетворяет. По его мнению, вместо вопросов «что делать?» и «кто виноват?» надо спросить — «где?» и «как?». Где — на границе семиотических пространств, а как — этому и посвящена его книга.</p>
+            <p>We are group of young female curators, who are interested in creating a free and open space, where people could have a discussion about art and culture!</p>
         </div>
-
-        
+        <div class="timeblock">
+            <p style="font-size: smaller; margin: 0px;">YOUR TIME IS NOW</p>
+            <!--online clock-->
+            <p id="time"></p>
+            <script>
+                clock();
+                function clock() {
+                    const now = new Date();
+                    const hours = now.getHours();
+                    const minutes = now.getMinutes();
+                    if (hours < 10) {
+                        if (minutes < 10){
+                            document.getElementById("time").innerHTML = "0"+hours +":0"+minutes;
+                        } else{
+                            document.getElementById("time").innerHTML = "0"+hours +":"+minutes;
+                        }
+                    } else if (minutes < 10){
+                        document.getElementById("time").innerHTML = hours +":0"+minutes;                     
+                    } else{
+                        document.getElementById("time").innerHTML = hours +":"+minutes;                      
+                    }
+                    setTimeout(clock, 1000); //to repeat the function and to constantly update time
+                };    
+            </script> 
+        </div>   
     </div>
+
+
+    <div class="container-fluid">
+        <div class="intermed">
+            <h2>WHO ARE WE</h2>
+            
+            <div class="portraits">
+                <div class="port">
+                    <p>ivetta is photo-artist, curator and designer</p>
+                    <img class="port" src="/static/i.jpeg">
+                    <p><b style="color: #acce39;">I</b>VETTA</p>
+                </div>
+                <div class="port">
+                    <p>sasha is curator, writer and researcher</p>
+                    <img class="port" src="/static/s.jpeg">
+                    <p><b style="color: #acce39;">S</b>ASHA</p>
+                </div>
+                <div class="port">
+                    <p>masha is tatto artist and head of meme department</p>
+                    <img class="port" src="/static/m.jpeg">
+                    <p><b style="color: #acce39;">M</b>ASHA</p>
+                </div>
+            </div>
+
+        </div>
+        
+              
+    </div>
+
+    
     
 {% endblock %}
